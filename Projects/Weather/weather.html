@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #232526, #414345);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header and Footer */
+        header, footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        /* Main Content Area */
+        main {
+            padding: 1.5rem;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"], select, button {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        select {
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right .7em top 50%;
+            background-size: .65em auto;
+            padding-right: 2em;
+        }
+        
+        select option {
+            background: #333;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            min-width: 200px;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- Glassmorphism Effect on Sections --- */
+        section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        
+        /* Current Weather Specifics */
+        #current-weather-display {
+            text-align: center;
+        }
+
+        .weather-main-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .weather-main-info .temp {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .weather-main-info .condition {
+            font-size: 1.2rem;
+            text-transform: capitalize;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.8rem;
+            text-align: left;
+        }
+        
+        .weather-details p {
+            background: rgba(0,0,0,0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* Forecast Styling */
+        .forecast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .forecast-day {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        
+        .forecast-day:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .forecast-day h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .forecast-day img {
+            margin: 0.3rem 0;
+        }
+        
+        /* Utility Classes */
+        .message, .error {
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 1rem;
+        }
+        .error {
+            color: #ffcdd2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌤️ Weather Dashboard</h1>
+    </header>
+
+    <main>
+        <form id="weather-form">
+            <input type="text" id="city-input" placeholder="Enter city name (or leave blank)" />
+            <select id="units-select">
+                <option value="metric">Celsius (°C)</option>
+                <option value="imperial">Fahrenheit (°F)</option>
+            </select>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        <!-- Current Weather will be injected here -->
+        <section id="current-weather-display">
+            <p class="message">Enter a city or allow location detection.</p>
+        </section>
+
+        <!-- Forecast will be injected here -->
+        <section id="forecast-display">
+            <!-- Forecast content will appear here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>Powered by OpenWeatherMap API</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Elements ---
+            const weatherForm = document.getElementById('weather-form');
+            const cityInput = document.getElementById('city-input');
+            const unitsSelect = document.getElementById('units-select');
+            const currentWeatherDisplay = document.getElementById('current-weather-display');
+            const forecastDisplay = document.getElementById('forecast-display');
+
+            // --- API Configuration ---
+            const API_KEY = "9670d15a95a58fb8c9af2552ad56d3bb"; // IMPORTANT: Replace with your actual API key
+            const CURRENT_URL = "https://api.openweathermap.org/data/2.5/weather";
+            const FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast";
+            const IPINFO_URL = "https://ipinfo.io/json";
+            
+            /**
+             * Fetches weather data for a given city and units.
+             * @param {string} city - The name of the city.
+             * @param {string} units - 'metric' or 'imperial'.
+             */
+            const fetchWeather = async (city, units) => {
+                const unitSymbol = units === 'metric' ? '°C' : '°F';
+                const speedSymbol = units === 'metric' ? 'm/s' : 'mph';
+
+                // Show a loading message
+                currentWeatherDisplay.innerHTML = `<p class="message">Fetching weather...</p>`;
+                forecastDisplay.innerHTML = '';
+
+                try {
+                    // --- Fetch both current weather and forecast data in parallel ---
+                    const currentUrl = `${CURRENT_URL}?q=${city}&appid=${API_KEY}&units=${units}`;
+                    const forecastUrl = `${FORECAST_URL}?q=${city}&appid=${API_KEY}&units=${units}`;
+
+                    const [currentResponse, forecastResponse] = await Promise.all([
+                        fetch(currentUrl),
+                        fetch(forecastUrl)
+                    ]);
+
+                    if (!currentResponse.ok) {
+                        throw new Error('City not found. Please try again.');
+                    }
+                    
+                    const currentData = await currentResponse.json();
+                    const forecastData = await forecastResponse.json();
+
+                    // --- Render the fetched data ---
+                    displayCurrentWeather(currentData, unitSymbol, speedSymbol);
+                    displayForecast(forecastData, unitSymbol, speedSymbol);
+
+                } catch (error) {
+                    currentWeatherDisplay.innerHTML = `<p class="error">${error.message}</p>`;
+                    forecastDisplay.innerHTML = ''; // Clear forecast on error
+                }
+            };
+
+            /**
+             * Renders the current weather data into the DOM.
+             */
+            const displayCurrentWeather = (data, unitSymbol, speedSymbol) => {
+                const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                currentWeatherDisplay.innerHTML = `
+                    <h2>Current Weather in ${data.name}</h2>
+                    <div class="weather-main-info">
+                        <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather icon">
+                        <div>
+                            <div class="temp">${Math.round(data.main.temp)}${unitSymbol}</div>
+                            <div class="condition">${data.weather[0].description}</div>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <p><strong>Feels Like:</strong> ${Math.round(data.main.feels_like)}${unitSymbol}</p>
+                        <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
+                        <p><strong>Wind:</strong> ${data.wind.speed} ${speedSymbol}</p>
+                        <p><strong>Pressure:</strong> ${data.main.pressure} hPa</p>
+                        <p><strong>Sunrise:</strong> ${sunrise}</p>
+                        <p><strong>Sunset:</strong> ${sunset}</p>
+                    </div>
+                `;
+            };
+            
+            /**
+             * Renders the 5-day forecast data into the DOM.
+             */
+            const displayForecast = (data, unitSymbol, speedSymbol) => {
+                let forecastHTML = `<h2>5-Day Forecast</h2><div class="forecast-grid">`;
+                
+                // Filter to get one forecast per day (around noon)
+                const dailyForecasts = data.list.filter(item => item.dt_txt.includes("12:00:00"));
+
+                dailyForecasts.forEach(day => {
+                    const date = new Date(day.dt * 1000).toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
+                    forecastHTML += `
+                        <div class="forecast-day">
+                            <h3>${date}</h3>
+                            <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="Weather icon">
+                            <p><strong>${Math.round(day.main.temp)}${unitSymbol}</strong></p>
+                            <p>${day.weather[0].description}</p>
+                        </div>
+                    `;
+                });
+
+                forecastHTML += `</div>`;
+                forecastDisplay.innerHTML = forecastHTML;
+            };
+
+            /**
+             * Gets the user's city based on their IP address and fetches the weather.
+             */
+            const getWeatherByIP = async () => {
+                try {
+                    const response = await fetch(IPINFO_URL);
+                    const data = await response.json();
+                    const city = data.city || "London"; // Fallback city
+                    const units = unitsSelect.value;
+                    fetchWeather(city, units);
+                } catch (error) {
+                    console.error("Could not auto-detect location:", error);
+                    // If auto-detect fails, prompt the user.
+                    currentWeatherDisplay.innerHTML = `<p class="message">Could not detect location. Please enter a city.</p>`;
+                }
+            };
+
+            // --- Event Listeners ---
+            weatherForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent page reload
+                const city = cityInput.value.trim();
+                const units = unitsSelect.value;
+
+                if (city) {
+                    fetchWeather(city, units);
+                } else {
+                    // If input is empty, try to detect by IP again
+                    getWeatherByIP();
+                }
+            });
+
+            // --- Initial Load ---
+            // Fetch weather for the user's location when the page first loads.
+            getWeatherByIP();
+        });
+    </script>
+</body>
+</html>

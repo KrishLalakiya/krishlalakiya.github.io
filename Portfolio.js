@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const DELETING_SPEED = 75;
     const PAUSE_END = 2000;
     const PAUSE_BEFORE_NEXT = 500;
+
     let titleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             charIndex++;
         }
         typingTextElement.textContent = currentText;
+
         if (!isDeleting && charIndex === currentTitle.length) {
             speed = PAUSE_END;
             isDeleting = true;
@@ -39,13 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const jokeButton = document.getElementById("jokeBtn");
     const jokeContainer = document.getElementById("joke");
+   
     if (jokeButton && jokeContainer) {
         const setupSpan = jokeContainer.querySelector(".joke-setup");
         const punchlineSpan = jokeContainer.querySelector(".joke-punchline");
+        
         jokeButton.addEventListener("click", () => {
+            
             setupSpan.innerText = "Thinking...";
             punchlineSpan.innerText = "";
             jokeContainer.classList.add("loading-joke");
+            
             fetch("https://official-joke-api.appspot.com/random_joke")
                 .then(response => response.json())
                 .then(data => {
@@ -61,4 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
+});
+document.addEventListener('DOMContentLoaded', () => {
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
+
 });

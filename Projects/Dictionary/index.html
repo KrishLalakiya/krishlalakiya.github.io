@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WordSphere</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>WordSphere</h1>
+        <nav>
+            <a href="#" class="tab-btn active">Dictionary</a>
+  
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="search-box">
+            <input type="text" id="word-input" placeholder="Enter a word..." />
+            <button id="search-btn">Search</button>
+        </div>
+
+        <div class="view-controls">
+            <button id="stacked-view-btn" class="view-btn active" title="Stacked View">☰</button>
+            <button id="grid-view-btn" class="view-btn" title="Grid View">⊞</button>
+        </div>
+
+        <div id="result-header-container"></div>
+        <div id="result-body-container"></div>
+
+        <section id="wotd-section" class="wotd-card">
+            <h2>📖 Word of the Day</h2>
+            <div id="wotd-content">Loading...</div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Powered by <a href="https://dictionaryapi.dev/" target="_blank" style="color: #5100ff;">DictionaryAPI</a></p>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+    --accent: #d92727;
+    --text-dark: #222;
+    --text-muted: #666;
+    --syn-bg: #e6f9e6;
+    --syn-fg: #0d6b0d;
+    --ant-bg: #ffe6e6;
+    --ant-fg: #b30000;
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #212529;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-attachment: fixed;
+}
+
+.site-header,
+.container {
+    max-width: 955px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.27);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.site-header {
+    position: sticky;
+    font-family: 'Merriweather', serif;
+    top: 0px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    margin-bottom: 30px;
+}
+
+.container {
+    padding: 30px;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    color: #0d6efd;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#word-input {
+    flex: 1;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: box-shadow 0.2s;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#word-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.3);
+}
+
+#search-btn {
+    padding: 14px 22px;
+    background: #0d6efd;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#search-btn:hover {
+    transform: scale(1.05);
+}
+
+.result-header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    color: #d63384;
+}
+
+.phonetics-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.audio-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #0d6efd;
+}
+
+.part-of-speech-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-left: 4px solid #0d6efd;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.definitions-list {
+    padding-left: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.synonym-section .tag {
+    background: var(--syn-bg);
+    color: var(--syn-fg);
+}
+
+.synonym-section .tag:hover {
+    background: var(--syn-fg);
+    color: white;
+}
+
+.antonym-section .tag {
+    background: var(--ant-bg);
+    color: var(--ant-fg);
+}
+
+.antonym-section .tag:hover {
+    background: var(--ant-fg);
+    color: white;
+}
+
+.wotd-card {
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #d63384;
+}
+
+.wotd-card h2 {
+    font-family: 'Merriweather', serif;
+    color: #ed2a8c;
+    text-shadow: 1px 1px 0px #666;
+}
+
+.view-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.view-btn {
+    padding: 7px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.view-btn.active {
+    background: #136ef7;
+    color: rgb(255, 255, 255);
+}
+
+#result-body-container.grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#result-body-container.grid-view .part-of-speech-section {
+    flex: 1;
+    min-width: 280px;
+}
+
+.error {
+    color: #d63349;
+    text-align: center;
+    font-weight: bold;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 20px 0 0 0;
+    color: #d3d3d3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.site-footer a {
+    color: #fff;
+}
