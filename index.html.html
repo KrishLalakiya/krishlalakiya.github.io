@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio website for Krish, a passionate web developer.">
+    <title>Krish | Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Portfolio.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="#home">
+            <img src="images/pf.png" alt="Krish's Portfolio Logo" class="logo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a class="btn" href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-left">
+                <div class="info">
+                    <h2>Hi, I am</h2>
+                    <h1>Krish Lalakiya</h1>
+                    <p class="roles">Currently: Frontend Developer<br>Soon: Full Stack Developer</p>
+
+                    <p class="title">
+                        <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+                    </p>
+
+                    <div class="edu-links">
+                        <a href="https://www.scaler.com/school-of-technology/" target="_blank" class="scaler-link">
+                            <img src="images/scaler-shield-icon 1.png" alt="Scaler Shield Icon" class="scaler-icon">
+                            <img src="images/scaler-full-logo.png" alt="Scaler School of Technology Full Logo"
+                                class="scaler-full-logo">
+                        </a>
+                        <a href="https://study.iitm.ac.in/ds/" target="_blank" rel="noopener noreferrer"
+                            class="iitm-link">
+                            <img src="images/iitm-icon.png" alt="IIT Madras Icon" class="iitm-icon">
+                            <img src="images/iitm-full-logo.png" alt="IIT Madras Full Logo" class="iitm-full-logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="images/Krish-whiteshirt.png" alt="A professional portrait of Krish" class="person-img">
+            </div>
+        </section>
+
+        <section id="about" class="container about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>A Little Bit About Me</h2>
+                    <p>I am a passionate and driven tech enthusiast, currently exploring the exciting world of web
+                        development. My journey started with a simple "Hello, World!" and has since grown into a deep
+                        fascination with building beautiful, functional, and user-friendly websites.</p>
+                    <p>When I'm not coding, you can find me exploring the latest technology trends, learning new design
+                        principles, or working on personal projects to sharpen my skills. I believe in the power of
+                        continuous learning and am always looking for the next challenge.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/Newfinal-removebg-preview.png" alt="A photo of Krish">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container skills-section">
+            <h2 class="section-title"><span>Skills</span></h2>
+
+            <div class="skills-grid">
+                <div class="skill-card html-color">
+                    <i class="fa-brands fa-html5 skill-icon html-color"></i>
+                    <p>HTML5</p>
+                </div>
+                <div class="skill-card css-color">
+                    <i class="fa-brands fa-css3-alt skill-icon css-color"></i>
+                    <p>CSS3</p>
+                </div>
+                <div class="skill-card js-color">
+                    <i class="fa-brands fa-js skill-icon js-color"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-card java-color">
+                    <img src="images/java-logo.png" alt="Java Logo" class="skill-logo-img">
+                    <p>Java</p>
+                </div>
+                <div class="skill-card python-color">
+                    <i class="fa-brands fa-python skill-icon python-color"></i>
+                    <p>Python</p>
+                </div>
+                <div class="skill-card git-color">
+                    <i class="fa-brands fa-git-alt skill-icon git-color"></i>
+                    <p>Git</p>
+                </div>
+                <div class="skill-card unity-color">
+                    <img src="images/unity.png" alt="Unity Logo" class="skill-logo-img">
+                    <p>Unity</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Done till this -->
+
+        <section id="projects" class="container projects-section">
+            <h2 class="section-title"><span>My Work</span></h2>
+            <h3 class="projects-subheading">Web Development Projects</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="images/Dictionary.png" alt="Dictionary App Screenshot" class="project-image">
+                    <div class="project-info">
+                        <h4>Dictionary App</h4>
+                        <p class="project-description">An interactive dictionary that provides definitions, phonetics,
+                            and examples for words by fetching data from an API.</p>
+                        <div class="project-tech-stack">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Live</a>
+                            <a href="https://github.com/KrishLalakiya/git-github-learning/blob/backend/Dictionary.html">
+                                View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="images/Weather App.png" alt="Weather App Screenshot" class="project-image">
+                    <div class="project-info">
+                        <h4>Live Weather App</h4>
+                        <p class="project-description">A real-time weather application that fetches and displays current
+                            weather data for any city using a third-party API.</p>
+                        <div class="project-tech-stack">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>REST API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Live</a>
+                            <a href="https://github.com/KrishLalakiya/git-github-learning/blob/backend/Dictionary.html">View
+                                Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="project-card">
+                <div class="jk-project-info">
+                    <h4>Joke Generator</h4>
+                    <p class="jk-project-description">A fun and simple java script and html that pulls random jokes from
+                        an API with the click of a button.</p>
+
+                    <div class="project-tech-stack">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>API</span>
+                    </div>
+
+                    <div class="joke-display-box">
+                        <p id="joke">
+                            <span class="joke-setup">Click "Get Joke" to start!</span>
+                            <span class="joke-punchline"></span>
+                        </p>
+                    </div>
+
+                    <div class="project-links">
+                        <button id="jokeBtn" class="joke-button">Get Joke</button>
+                    </div>
+                </div>
+            </div>
+            <h3 class="projects-subheading">Game Development Projects</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="images/rpg-game.jpeg" alt="2D RPG Game Screenshot" class="project-image" height="600px">
+                    <div class="project-info">
+                        <h4>2D Procedural RPG</h4>
+                        <p class="project-description">A 2D fighting game built in Unity where item enchantments and
+                            world elements are procedurally generated for a unique experience every time.</p>
+                        <div class="project-tech-stack">
+                            <span>Unity</span><span>C#</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/KrishLalakiya/My-First-Game/tree/main">View Code on
+                                GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="projects-subheading">AI & Computer Vision</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h4>Use of Gesture Controller in any task</h4>
+                        <p class="project-description">A Python script that uses a webcam to track hand gestures in
+                            real-time and translates them into keyboard commands to play games, such as controlling a
+                            character's movement.</p>
+                        <div class="project-tech-stack">
+                            <span>Python</span><span>OpenCV</span><span>Mediapipe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Demo (Video)</a>
+                            <a href="#">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="container contact-section">
+            <div class="contact-content-centered">
+                <h2 class="contact-title">Get In Touch</h2>
+                <p class="contact-message">
+                    I'm always looking for new opportunities to collaborate on exciting projects.
+                    Whether you have a question or just want to connect, feel free to reach out.
+                </p>
+                <a href="mailto:krishrlalakiya@email.com" class="email-button">Say Hello</a>
+
+                <div class="contact-socials">
+                    <a href="mailto:krishrlalakiya@email.com" class="google" target="_blank" rel="noopener noreferrer"
+                        aria-label="Gmail" data-tooltip="Email: krishrlalakiya@email.com">
+                        <img src="images/gmail logo.png" style="height: 27px;"></img>
+                    </a>
+                    <a href="https://github.com/KrishLalakiya" class="github" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub" data-tooltip="GitHub: KrishLalakiya">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/krish-lalakiya-b326a1320/" class="linkedin" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn" data-tooltip="LinkedIn: Krish Lalakiya">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/Innovative1000" class="twitter" target="_blank" rel="noopener noreferrer"
+                        aria-label="Twitter" data-tooltip="Twitter: Innovative Gamer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://discord.gg/rj2eEE7BRQ" class="discord" target="_blank" rel="noopener noreferrer" aria-label="Discord"
+                        data-tooltip="Discord: .innovativegamer or Innovative Gamer#0012">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://opensourceclubosc.slack.com/team/U09CM5MNJE4" class="slack" target="_blank" rel="noopener noreferrer" aria-label="Slack"
+                        data-tooltip="Slack: Krish Lalakiya">
+                        <img src="images/slack logo.png" alt="Slack Logo">
+                    </a>
+                    <!-- 
+                    <a href="https://instagram.com/your-username" class="instagram" target="_blank"
+                        rel="noopener noreferrer" aria-label="Instagram" data-tooltip="Instagram: @your_username">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://facebook.com/your-profile" class="facebook" target="_blank"
+                        rel="noopener noreferrer" aria-label="Facebook" data-tooltip="Facebook: Krish Lalakiya">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+
+                    <a href="https://wa.me/91yournumber" class="whatsapp" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp" data-tooltip="WhatsApp: +91...">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    -->
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container footer-content">
+                <div class="scroll-up">
+                    <a href="#home">
+                        <i class="fas fa-angle-up"></i>
+                        <span>BACK TO TOP</span>
+                    </a>
+                </div>
+                <p class="footer-copy">&copy; 2025 Krish Lalakiya. All Rights Reserved.</p>
+            </div>
+        </footer>
+        <script src="Portfolio.js"></script>
+</body>
+
+</html>

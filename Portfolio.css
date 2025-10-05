@@ -1,0 +1,786 @@
+:root {
+    --bg-color: #0B0B0B;
+    --light-bg-color: #F0F0F0;
+    --dark-text-color: #333;
+    --text-color: #e0e0e0;
+    --primary-color: rgb(0, 128, 255);
+    --secondary-color: #1c1918;
+    --light-gray: #bbb;
+    --icon-bg: #C4C4C4;
+    --card-bg: #1a1a1a;
+    --font-family: "Manrope", sans-serif;
+    --primary: oklch(0.9 0.17 100);
+    --bg-dark: oklch(0.1 0 264);
+    --bg: oklch(0.2 0 264);
+    --bg-light: oklch(0.3 0 264);
+    --text: oklch(0.96 0 264);
+    --text-muted: oklch(0.76 0 264);
+    /* shadows */
+    --shadow-xs: inset 0 1px 1px #ffffff25,
+        /* top highlight */
+        0 1px 1px #00000020,
+        /* dark shadow */
+        0 1px 2px #00000015;
+    /* soft shadow */
+    --shadow-s: inset 0 1px 2px #ffffff30,
+        /* top highlight */
+        0 1px 2px #00000030,
+        /* dark shadow */
+        0 2px 4px #00000015;
+    /* soft shadow */
+    --shadow-m: inset 0 1px 2px #ffffff50,
+        /* top highlight */
+        0 2px 4px #00000030,
+        /* dark shadow */
+        0 4px 8px #00000015;
+    /* soft shadow */
+    --shadow-l: inset 0 1px 2px #ffffff70,
+        /* top highlight */
+        0 4px 6px #00000030,
+        /* dark shadow */
+        0 6px 10px #00000015;
+    /* soft shadow */
+
+    --html-color: #E34F26;
+    --css-color: #1572B6;
+    --js-color: #F7DF1E;
+    --java-color: #007396;
+    --python-color: #3776AB;
+    --git-color: #F05032;
+    --unity-color: #FFFFFF;
+
+    --github-color: #ffffff;
+    --linkedin-color: #0A66C2;
+    --twitter-color: #1DA1F2;
+    --discord-color: #5865F2;
+    
+    --facebook-color: #1877F2;
+    --whatsapp-color: #25D366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+.container {
+    width: min(90%, 1120px);
+    margin-inline: auto;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    padding: 1.5rem 5%;
+    z-index: 10;
+}
+
+.navbar .logo {
+    height: 60px;
+    width: auto;
+    cursor: pointer;
+}
+
+.nav-links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.nav-links .btn {
+    background-color: #fff;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    font-weight: 550;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    font-weight: 550;
+}
+
+.nav-links .btn:hover {
+    background-color: #bbbaba;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 5%;
+}
+
+.hero-left {
+    flex-basis: 500px;
+    flex-grow: 1;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.person-img {
+    width: 100%;
+    max-width: 450px;
+    max-height: 450px;
+    background: var(--bg);
+    box-shadow: var(--shadow-l);
+    object-fit: contain;
+    border-radius: 50%;
+    transform: translate(-30%, -0%);
+    /* border: 1px solid whitesmoke;
+    box-shadow: 0 0 20px white; */
+}
+
+.info h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.info h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.info .title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #555;
+    min-height: 2.5rem;
+}
+
+.info .roles {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: var(--light-gray);
+    width: 3px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+    }
+}
+
+.edu-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.edu-links a {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--icon-bg);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, width 0.4s ease-out;
+    overflow: hidden;
+}
+
+.edu-links a:hover {
+    transform: translateY(-2px);
+    background-color: #dddddd;
+    box-shadow: var(--shadow-l);
+}
+
+/* --- Scaler--- */
+.edu-links .scaler-link {
+    padding: 0;
+}
+
+.edu-links .scaler-link .scaler-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease-out, opacity 0.4s ease;
+}
+
+.edu-links .scaler-link .scaler-full-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.edu-links .scaler-link:hover {
+    width: 170px;
+}
+
+.edu-links .scaler-link:hover .scaler-icon {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+}
+
+.edu-links .scaler-link:hover .scaler-full-logo {
+    opacity: 1;
+}
+
+/* --- IITM  --- */
+.edu-links .iitm-link {
+    padding: 0;
+}
+
+.edu-links .iitm-link .iitm-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease-out, opacity 0.4s ease;
+}
+
+.edu-links .iitm-link .iitm-full-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.edu-links .iitm-link:hover {
+    width: 230px;
+}
+
+.edu-links .iitm-link:hover .iitm-icon {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+}
+
+.edu-links .iitm-link:hover .iitm-full-logo {
+    opacity: 1;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-title span {
+    border: 2px solid var(--text-color);
+    padding: 0.5rem 1.5rem;
+}
+
+/* --- About --- */
+.about-section,
+.skills-section,
+.projects-section,
+.contact-section,
+footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.about-section {
+    padding-block: 4rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.about-text,
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.skills-section {
+    padding-block: 4rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.skill-logo-img {
+    height: 3rem;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.html-color .skill-icon {
+    color: var(--html-color);
+}
+
+.css-color .skill-icon {
+    color: var(--css-color);
+}
+
+.js-color .skill-icon {
+    color: var(--js-color);
+}
+
+.python-color .skill-icon {
+    color: var(--python-color);
+}
+
+.git-color .skill-icon {
+    color: var(--git-color);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card.html-color:hover {
+    border-color: var(--html-color);
+    box-shadow: 0 0 20px -2px var(--html-color);
+}
+
+.skill-card.css-color:hover {
+    border-color: var(--css-color);
+    box-shadow: 0 0 20px -2px var(--css-color);
+}
+
+.skill-card.js-color:hover {
+    border-color: var(--js-color);
+    box-shadow: 0 0 20px -2px var(--js-color);
+}
+
+.skill-card.java-color:hover {
+    border-color: var(--java-color);
+    box-shadow: 0 0 20px -2px var(--java-color);
+}
+
+.skill-card.python-color:hover {
+    border-color: var(--python-color);
+    box-shadow: 0 0 20px -2px var(--python-color);
+}
+
+.skill-card.git-color:hover {
+    border-color: var(--git-color);
+    box-shadow: 0 0 20px -2px var(--git-color);
+}
+
+.skill-card.unity-color:hover {
+    border-color: var(--unity-color);
+    box-shadow: 0 0 20px -2px var(--unity-color);
+}
+
+
+.projects-section {
+    padding-block: 4rem;
+}
+
+.projects-subheading {
+    text-align: left;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+
+.projects-grid {
+    display: grid;
+    /* if we remove grid-template-columns it will make another version of it  */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--bg);
+    border-radius: 13px;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-xs);
+}
+
+.project-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-l);
+    /*different type box-shadow: 0 4px 20px rgba(0, 128, 255, 0.25) */
+}
+
+
+.project-card .project-info {
+    position: relative;
+    z-index: 2;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-info h4 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.jk-project-info h4 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    color: #a0a0a0;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    min-height: 60px;
+}
+
+.jk-project-description {
+    color: #a0a0a0;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    min-height: 20px;
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tech-stack span {
+    background-color: #333;
+    color: var(--text-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.project-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 1.5rem;
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+}
+
+.joke-display-box {
+    position: relative;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid #444;
+    box-shadow: var(--shadow-s);
+    /* 0 2px 4px rgba(0,0,0,0.2) */
+}
+
+#joke {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    transition: opacity 0.4s ease-in-out;
+}
+
+.joke-setup,
+.joke-punchline {
+    display: block;
+}
+
+.joke-punchline {
+    padding-top: 0.7rem;
+    padding-left: 1rem;
+}
+
+@keyframes pulse {
+    0% {
+        color: var(--text-color);
+    }
+
+    50% {
+        color: #888;
+    }
+
+    100% {
+        color: var(--text-color);
+    }
+}
+
+.loading-joke {
+    animation: pulse 1.5s infinite;
+}
+
+.joke-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    margin-top: 12px;
+    border-radius: 16px;
+    font-weight: 550;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+.joke-button:hover {
+    background-color: #0056b3;
+    box-shadow: var(--shadow-m);
+    transform: translateY(-2px);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding-block: 6rem;
+}
+
+.contact-content-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.contact-message {
+    font-size: 1.1rem;
+    color: var(--text-muted, #a0a0a0);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.email-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.email-button:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* --- Social Icons & Tooltips --- */
+.contact-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.contact-socials a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--card-bg, #1a1a1a);
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    text-decoration: none; /* This removes the underline */
+}
+
+.contact-socials a:hover {
+    transform: translateY(-5px);
+}
+
+.contact-socials a i {
+    font-size: 1.8rem;
+}
+
+.contact-socials a img {
+    width: 32px;
+    height: 32px;
+}
+
+/* --- Set Default Brand Colors for Icons --- */
+.contact-socials a.github i     { color: #ffffff; } /* White for GitHub on dark bg */
+.contact-socials a.linkedin i   { color: #0A66C2; }
+.contact-socials a.twitter i    { color: #1DA1F2; }
+.contact-socials a.discord i    { color: #5865F2; }
+/* The Slack image is already in color, so it needs no color rule */
+
+
+/* --- Tooltip CSS --- */
+.contact-socials a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 125%;
+    /* bottom: 125%; */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.contact-socials a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: 3rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.scroll-up a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.footer-copy {
+    color: var(--text-muted, #a0a0a0);
+    font-size: 0.9rem;
+    text-align: center;
+}
