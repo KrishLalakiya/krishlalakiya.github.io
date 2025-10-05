@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Random Joke Generator</title>
+</head>
+
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+
+  <h1>😂 Random Joke Generator</h1>
+  <button id="jokeBtn">Get a Joke</button>
+  <p id="joke"></p>
+
+  <script>
+    document.getElementById("jokeBtn").addEventListener("click", () => {
+
+      fetch("https://official-joke-api.appspot.com/random_joke")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("joke").innerText =
+            data.setup + " - " + data.punchline;
+        })
+        .catch(error => {
+          document.getElementById("joke").innerText = "Oops! Couldn't fetch a joke 😅";
+          console.error("Error:", error);
+        });
+    });
+  </script>
+  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1">
+    <button>Click here for More Funny Jokes</button>
+  </a>
+</body>
+
+</html>
